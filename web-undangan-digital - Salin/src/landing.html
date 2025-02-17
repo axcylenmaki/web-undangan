@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloverInvite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #CADEF1;
+        }
+        
+        .sky {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('assets/img/sky.jpg');
+            background-size: 100% 100%;
+            /* Mengatur agar gambar menutupi seluruh elemen */
+            background-position: center;
+            /* Menempatkan gambar di tengah */
+            background-repeat: no-repeat;
+            /* Agar gambar tidak diulang */
+            padding: 20px;
+            
+            /* background-image: url('../src/img/sky.jpg') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+             */
+        }
+        .sky h1 {
+    color: white;
+    font-size: 100px;
+    text-align: right;
+    width: 100%;
+    margin-right: 600px;
+    font-family: "Irish Grover", serif;
+    margin-top: 100px;
+}
+
+        .irish-grover-regular {
+  font-family: "Irish Grover", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+        .invitation-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            background: #6C8EA4;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            height: 500px;
+            width: 500px;
+            margin-left: 605px;
+            border-radius: 15%;
+        }
+        .card h2 {
+            color: white;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    margin-right: 600px;
+    font-family: "Irish Grover", serif;
+    margin-top: 10px;
+        }
+        .card p {
+            color: white;
+            margin-top: 50px;
+            font-size: 25px;
+        }
+        .footer {
+            background: #6C8EA4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CloverInvite</a>
+            <a href="auth/login.php"><button class="btn btn-outline-light">Login</button></a>
+        </div>
+    </nav>
+    
+    <div class="sky">
+        <h1>Ingin buat undangan? Login</h1>
+    </div>
+    
+    <div class="template">
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <div class="invitation-card">
+                    <img src="../src/assets/templates/1.png" class="img-fluid rounded" alt="Template 1">
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="invitation-card">
+                    <img src="../src/assets/templates/2.png" class="img-fluid rounded" alt="Template 2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="card">
+            <h2>CloverInvite</h2>
+            <p>CloverInvite adalah sebuah web pembuat undangan berdasarkan template yang telah disediakan. Kami telah menyediakan berbagai template menarik yang dapat kamu pilih!</p>
+</div>
+    
+    <footer class="footer">
+        <p>Dikirim dengan sihir, dibaca dengan hati, diterima dengan senyuman!</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

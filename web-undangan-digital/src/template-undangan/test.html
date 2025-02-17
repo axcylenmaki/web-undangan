@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #83234d;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .countdown-item {
+      background: white;
+      color: #83234d;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .countdown-item span {
+      display: block;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      background-color: #d4b080;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rekayasa Perangkat Lunak</h1>
+  <h2>Rabu</h2>
+  <h2>21 Mei 2025</h2>
+
+  <div class="countdown">
+    <div class="countdown-item">
+      <span id="days">0</span>
+      DAYS
+    </div>
+    <div class="countdown-item">
+      <span id="hours">0</span>
+      HOURS
+    </div>
+    <div class="countdown-item">
+      <span id="minutes">0</span>
+      MINUTES
+    </div>
+    <div class="countdown-item">
+      <span id="seconds">0</span>
+      SECONDS
+    </div>
+  </div>
+
+  <footer>
+    Navigasi
+  </footer>
+
+  <script>
+    // Set target date
+    const targetDate = new Date("May 21, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+:root {
+  --bg: #7c2946;
+  --beige: #cfb997;
+  --shadow: 0 2px 2px rgba(0, 0, 0 / 0.5);
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('/fonts/josefin-sans.woff2') format('woff2'),
+         url('/fonts/josefin-sans.woff') format('woff');
+    font-display: swap;
+}
+
+body{
+    background-color: var(--bg);
+    min-height: 100px;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Sembunyikan area di luar layar horizontal */ 
+    overflow: hidden; /* Menghindari scroll saat transisi */
+    overflow: auto;
+}
+
+body.fonts-loaded {
+    font-family: 'Josefin Sans', Arial, sans-serif; /* Gunakan font web */
+}
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#container1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero {
+    min-height: 100vh;
+    background-color: var(--bg);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    z-index: 10;
+    overflow: hidden; /* Nonaktifkan scroll di halaman pertama */
+}
+
+.hero h1{
+    font-family: "Jersey 10", serif;
+    font-size: 9.5rem;
+}
+
+.image-wrapper .log1 {
+    width: 150px; /* Ukuran diameter lingkaran */
+    height: 150px;
+    background-color: #FFFFFF; /* Warna background putih */
+    border-radius: 50%; /* Membuat background bulat */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opsional: Tambahkan bayangan */
+    margin-right: 10px;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+.image-wrapper .log2 {
+    width: 150px; /* Ukuran diameter lingkaran */
+    height: 150px;
+    background-color: #FFFFFF; /* Warna background putih */
+    border-radius: 50%; /* Membuat background bulat */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opsional: Tambahkan bayangan */
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.log1 {
+    width: 100px; /* Sesuaikan ukuran gambar */
+    height: auto;
+    max-width: 80%;
+    object-fit: contain; /* Opsional: Memastikan gambar tetap proporsional */
+}
+
+.log2 {
+    width: 100px; /* Sesuaikan ukuran gambar */
+    height: auto;
+    max-width: 80%;
+    object-fit: contain; /* Opsional: Memastikan gambar tetap proporsional */
+}
+
+.hero h4{
+    position: relative;
+    font-family: "Josefin Sans", serif;
+    font-size: 2rem;
+    z-index: 2;
+}
+
+.hero h4.dua{
+    position: relative;
+    font-family: "Lilita One", serif;
+    font-size: 2.5rem;
+    z-index: 2;
+}
+
+button {
+    position: relative;
+    transition: opacity 2s ease;
+    z-index: 10;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.show-next-page {
+    opacity: 1;
+}
+
+/*section1*/
+.hero1 h1{
+    position: relative;
+    font-family: "Jersey 10", serif;
+    font-size: 10rem;
+    top: -80px;
+    z-index: 2;
+}
+
+.hero1 h4{
+    position: relative;
+    font-family: "Josefin Sans", serif;
+    font-size: 2.5rem;
+    z-index: 2;
+    margin-bottom: 10px;
+}
+
+.hero1 h4.dua{
+    position: relative;
+    font-family: "Lilita One", serif;
+    font-size: 4rem;
+    z-index: 2;
+    margin-bottom: 5p7;
+}
+
+.hero1 h4.tiga{
+    position: relative;
+    font-family: "Josefin Sans", serif;
+    font-size: 2.3rem;
+    z-index: 2;
+}
+
+/*section2*/
+.hero1 h1{
+    position: relative;
+    font-family: "Jersey 10", serif;
+    font-size: 10rem;
+    top: -80px;
+    z-index: 2;
+}
+
+.hero1 h4{
+    position: relative;
+    font-family: "Josefin Sans", serif;
+    font-size: 2.5rem;
+    z-index: 2;
+    margin-bottom: 10px;
+}
+
+.hero1 h4.dua{
+    position: relative;
+    font-family: "Lilita One", serif;
+    font-size: 4rem;
+    z-index: 2;
+    margin-bottom: 5p7;
+}
+
+.hero1 h4.tiga{
+    position: relative;
+    font-family: "Josefin Sans", serif;
+    font-size: 2.3rem;
+    z-index: 2;
+}
+
+/*navbar*/
+.navbar {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+  }
+
+  .navbar.show-navbar {
+    transform: translateY(0);
+  }
+
+
+/*animasi cloud*/
+
+@keyframes move-cloud-left {
+    0% {
+        transform: translateX(100%); /* Mulai di luar layar sebelah kanan */
+    }
+    100% {
+        transform: translateX(0%); /* Berakhir di luar layar sebelah kiri */
+    }
+}
+
+@keyframes move-cloud-right {
+    0% {
+        transform: translateX(-100%); /* Mulai di luar layar sebelah kiri */
+    }
+    100% {
+        transform: translateX(0%); /* Berakhir di luar layar sebelah kanan */
+    }
+}
+
+
+.cloud-left {
+    position: absolute;
+    top: -18%;
+    left: 0;
+    width: 30%; /* 50% dari lebar layar */
+    max-width: 2000px; /* Maksimal lebar */
+    height: auto;
+    opacity: 0.8;
+    z-index: 1;
+    animation: move-cloud-right 3s; /* Durasi 20 detik, berulang */
+}
+
+.cloud-right {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    width: 30%; /* 50% dari lebar layar */
+    max-width: 2000px; /* Maksimal lebar */
+    height: auto;
+    opacity: 0.8;
+    z-index: 1;
+    animation: move-cloud-left 3s; /* Durasi 25 detik, berulang */
+}
+
+.cloud-container {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
