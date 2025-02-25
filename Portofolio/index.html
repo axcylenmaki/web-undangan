@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Yuki</title>
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #000000;
+            --second-bg-color: #161616;
+            --text-color: #fff;
+            --main-color: #7b4bb7;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            font-family: "Poppins", sans-serif;
+            color: var(--text-color);
+        }
+
+        html::-webkit-scrollbar {
+            width: 0.8rem;
+        }
+
+        html::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8rem;
+            padding: 3rem 9%;
+            background: rgba(0, 0, 0, 0.7);
+            filter: drop-shadow(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--main-color);
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar a {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+            border-bottom: 3px solid var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--main-color);
+            display: none;
+        }
+
+        @media (max-width:995px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 40%;
+                border-left: 3px solid var(--main-color);
+                border-bottom: 3px solid var(--main-color);
+                border-bottom-left-radius: 2rem;
+                padding: 1rem 3%;
+                background-color: var(--second-bg-color);
+                border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+
+            .navbar .active {
+                display: block;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem;
+            }
+
+            .navbar a:hover,
+            .navbar a.active {
+                padding: 1rem;
+                border-radius: 0.5rem;
+                background-color: 0.5rem solid var(--main-color);
+            }
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 5rem 9% 5rem;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8rem;
+            background: var(--bg-color);
+            padding-top: 9rem;
+        }
+
+        .home .home-content h1 {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h3 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .home-img {
+            border-radius: 50%;
+        }
+
+        .home-img img {
+            position: relative;
+            width: 32vw;
+            border-radius: 50%;
+            box-shadow: 0 0 25pc var(--main-color);
+            cursor: pointer;
+        }
+
+        .home-img img:hover {
+            transform: scale(1.01);
+            filter: drop-shadow(0 0 25px var(--main-color))
+        }
+
+        .home-content p {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .home-content {
+            text-align: left;
+            max-width: 50rem;
+        }
+
+        .social-icon {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: 0.2rem solid var(--main-color);
+            font-size: 2rem;
+            border-radius: 50%;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: 0.3s ease;
+        }
+
+        .social-icon a:hover {
+            color: white;
+            transform: scale(1.1) translateY(-3px);
+            background: var(--main-color);
+            box-shadow: 0 0 25px var(--main-color);
+        }
+
+        .btn-container {
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            border: 2px solid var(--main-color);
+            letter-spacing: 0.1rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--main-color);
+            color: var(--text-color);
+            box-shadow: 0 0 25px var(--main-color);
+        }
+
+
+        .typing-text {
+            font-size: 34px;
+            font-weight: 300px;
+            min-height: auto;
+            display: inline-block;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .typing-text span {
+            position: relative;
+            display: inline;
+        }
+
+        .typing-text span::before {
+            content: 'software developer';
+            color: var(--main-color);
+            animation: words 20s infinite;
+        }
+
+        .typing-text span::after {
+            content: '';
+            background: var(--bg-color);
+            position: relative;
+            width: calc(100% + 8px);
+            height: 100%;
+            border-left: 3px solid var(--bg-color);
+            right: -8;
+            animation: cursor 0.6s infinite, typing 20s steps(14)infinite;
+        }
+
+        @keyframes cursor {
+            to {
+                border-left: 3px solid var(--main-color);
+            }
+        }
+
+        @keyframes words {
+
+            0%,
+            25% {
+                content: 'web developer';
+            }
+
+            26%,
+            50% {
+                content: 'software developer';
+            }
+
+            51%,
+            75% {
+                content: 'web designer';
+            }
+
+            76%,
+            100% {
+                content: 'game developer';
+            }
+        }
+
+        @keyframes typing {
+
+            10%,
+            15%,
+            30%,
+            35%,
+            50%,
+            55%,
+            70%,
+            75%,
+            90%,
+            95% {
+                width: 0;
+            }
+
+            5%,
+            20%,
+            25%,
+            40%,
+            45%,
+            60%,
+            65%,
+            80%,
+            85% {
+                width: calc(100% + 8px);
+            }
+        }
+
+        @media (max-width:1000px) {
+            .home {
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width:995px) {
+            .home {
+                flex-direction: column;
+                margin: 5rem 4rem;
+            }
+
+            .home.home-content h3 {
+                font-size: 2.5rem;
+            }
+
+            .home-content h1 {
+                font-size: 5rem;
+            }
+
+            .home-img img {
+                width: 70vw;
+                margin-top: 4rem;
+            }
+        }
+
+        /* section nih */
+        .services {
+            background: var(--second-bg-color);
+            padding: 5rem 3%;
+        }
+
+        /* Services Grid Container */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        /* Service Box Styling */
+        .service-box {
+            background-color: var(--main-color);
+            border-radius: 2rem;
+            padding: 2rem;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .service-box:hover {
+            background: transparent;
+            color: var(--text-color);
+            transform: scale(1.03);
+            border: 1px solid var(--main-color);
+        }
+
+        /* Service Info Styling */
+        .service-info h4 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-info p {
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .services {
+                padding: 4rem 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1.5rem;
+            }
+
+            .service-box {
+                padding: 1.5rem;
+            }
+        }
+
+
+        /* skills section */
+
+        .skills {
+            background: var(--bg-color);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .skills .container {
+            background: rgba(52, 11, 103, 0.277);
+            color: var(--text-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 80%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+        .skills .container .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* Responsif */
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .skills .container .bar {
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .skills .container .bar:hover {
+            box-shadow: 0 4px 10px var(--main-color);
+            transform: scale(1.05);
+            /* Hover lebih smooth */
+        }
+
+        .skills .container .bar .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 10px 0;
+        }
+
+        .skills .container .bar .info img {
+            width: 60px;
+            /* Ukuran gambar lebih seragam */
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .skills .container .bar .info span {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        /* education section */
+
+        .education {
+            background: var(--second-bg-color);
+        }
+        .education .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .education .timeline::after{
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: rgb(90, 64, 64);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            z-index: -2px;
+        }
+        .education .container{
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+
+        }
+        .education .container::after{
+            content: '\f501';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            right: -17px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid var(--main-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 100;
+            font-size: 1.89rem;
+            text-align: center;
+            font-weight: 600;
+            font-family: "Font Awesome 5 Free";
+            color: rgb(90, 64, 64);
+        }
+        .education .left{
+            left: 0;
+        }
+
+        .education .right{
+            left: 50%;
+        }
+
+        .education .left::before{
+            content: '';
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--main-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--main-color);
+        }
+
+        .education .right::before{
+            content: '';
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--main-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent var(--main-color) transparent transparent;
+        }
+        .education .right::after{
+            left: -16px;
+        }
+
+        .education .content{
+            background: var(--main-color);
+            position: relative;
+            border-radius: 6px;
+        }
+
+        .education .content .tag{
+            font-size: 1.5rem;
+            padding: 1.5rem;
+            padding-top: 1.5rem;
+        }
+
+        .education .content .desc {
+            margin-left: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .education .content .tag h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+        }
+
+        .education .content .desc p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: rgb(255, 255, 255);
+        }
+
+        @media screen and (max-width:600px){
+            .education .timeline{
+                margin-top: 2rem;
+            }
+            
+            .education .timeline::after{
+                left: 31px;
+            }
+
+            .education .container{
+                width: 100%;
+                padding-left: 8rem;
+                padding-right: 2rem;
+            }
+
+            .education .container::after {
+                font-size: 2.2rem;
+            }
+
+            .education .container::before {
+                left: 61px;
+                border: medium solid var(--main-color);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--main-color) transparent transparent;
+            }
+
+            .education .left::after{
+                left: 15px;
+            }
+
+            .education .right::after{
+                left: 15px;
+            }
+
+            .education .right{
+                left: 0%;
+            }
+        }
+
+        /* contact section */
+        .contact h2{
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .contact form{
+            max-width: 70rem;
+            margin: 1rem auto;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .contact form .input-box{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact form .input-box input,
+        .contact form textarea{
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            border-radius: 0.8rem;
+            border: 2px solid var(--main-color);
+            margin: 1rem 0;
+            resize: none;
+        }
+
+        .contact form .btn{
+            margin-top: 2rem;
+        }
+
+        /* footer section */
+
+        .footer{
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 40px 0;
+            background-color: var(--main-color);
+        }
+
+        .footer.social{
+            text-align: center;
+            padding-bottom: 25px;
+            color: black;
+        }
+
+        .footer .social a{
+            font-size: 25px;
+            color: black;
+            border: 2px solid black;
+            width: 42px;
+            height: 42px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: 0.3s ease;
+        }
+
+        .footer .social a:hover{
+            transform: scale(1.2)translateY(-5px);
+            background: black;
+            color: var(--main-color);
+        }
+
+        .footer ul{
+            margin-top: 0;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .footer ul li a {
+            color: black;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .footer ul li a:hover{
+            border-radius: 3px solid black;
+        }
+
+        .footer ul li{
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .footer .copyright{
+            margin-top: 50px;
+            text-align: center;
+            font-size: 16px;
+            color: black;
+        }
+
+        @media(max-width:1285px){
+            html{
+                font-size: 55%;
+            }
+
+            .services-container{
+                padding-bottom: 7rem;
+                grid-template-columns: repeat(2, 1fr);
+                margin: 0.5rem;
+            }
+        }
+
+        @media(max-width:991px){
+            .header{
+                padding: 2rem 3%;
+            }
+
+            section{
+                padding: 10rem 3% 2rem;
+            }
+
+            .services{
+                padding-bottom: 7rem;
+            }
+
+            .footer{
+                padding: 2rem 3%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Yuki</a>
+
+        <i class="fa-solid fa-bars" class="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#Home" class="active">Home</a>
+            <a href="#Service">Service</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Education">Education</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="Home">
+        <div class="home-img">
+            <img src="assets/image/poto-gua.jpeg" alt="">
+        </div>
+        <div class="home-content">
+            <div class="content">
+                <h1>Hi, It's <span>Yuki!</span></h1>
+                <h3 class="typing-text">I'm a <span></span></h3>
+                <p>I am a student at SMK Negeri 71 Jakarta, majoring in Software Engineering. I am currently interested
+                    in
+                    projects to create websites and applications, I am also interested in the world of IT.</p>
+            </div>
+
+            <div class="social-icon">
+                <a href=""><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <div class="btn-container">
+                <a href="#" class="btn">Hire Me!</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="Service">
+        <h2 class="heading">My Services</h2>
+
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Software Engineering</h4>
+                    <p>I am a Software Engineer who focuses on developing applications and technology solutions using
+                        various programming languages such as PHP and JavaScript. With experience in web application
+                        development and cloud systems, I always strive to provide efficient and quality solutions.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Front-end Developer</h4>
+                    <p>I am a Front-End Developer focused on creating attractive and responsive user interfaces.
+                        Experienced in HTML, CSS, JavaScript, and frameworks such as React, I am committed to
+                        creating intuitive and satisfying user experiences.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>UI/UX Designer</h4>
+                    <p>I am a UI/UX Designer focused on creating intuitive user experiences and aesthetic designs.
+                        With skills in prototyping, wireframing, and the use of design tools like Figma, I am
+                        committed to designing solutions that prioritize user comfort and satisfaction.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Software Tester</h4>
+                    <p>I am a Software Tester focused on ensuring software quality through manual and automated
+                        testing. Experienced in identifying bugs, writing test scripts, and ensuring applications
+                        run smoothly across multiple platforms to provide error-free results.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Content Manager</h4>
+                    <p>I am a Content Manager focused on managing and creating relevant and engaging content.
+                        Experienced in planning content strategy, managing teams of writers, and ensuring quality
+                        and consistency of content across multiple platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="Skills">
+        <h2 class="heading">skills</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <div class="bar">
+                    <div class="info">
+                        <img src="assets/image/figma.png">
+                        <span>Figma</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="assets/image/wordpress.png">
+                        <span>wordpress</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="assets/image/php.png">
+                        <span>php</span>
+                    </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="assets/image/js.png">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="Education">
+        <h2 class="heading">My <span>Education</span></h2>
+        <div class="timeline">
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>SMKN 71 Jakarta</h2>
+                    </div>
+                    <div class="desc">
+                        <p>Saya merupakan lulusan Smkn 71 Jakarta berjurusan Rekayasa Perangkat Lunak</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <div class="tag">
+                        <h2>SMPN 149 Jakarta</h2>
+                    </div>
+                    <div class="desc">
+                        <p>Saya merupakan lulusan SMPN 149 Jakarta</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>SDN PONDOK KOPI 08 PAGI</h2>
+                    </div>
+                    <div class="desc">
+                        <p>Saya merupakan lulusan SDN 08 PONDOK KOPI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="Contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="name" required>
+                <input type="email" placeholder="name" required>
+                <input type="number" placeholder="Phone Number" required>
+                <input type="text" placeholder="Subject" required>
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>  
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
